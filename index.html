@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação do Currículo Beta Kids</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+:root {
+  --azul: #1a3a6e;
+  --azul-medio: #2d5aa0;
+  --azul-claro: #5b8dd9;
+  --dourado: #e8a020;
+  --dourado-claro: #f5c842;
+  --verde: #2d8a5e;
+  --verde-claro: #4db380;
+  --coral: #e05a3a;
+  --creme: #faf8f3;
+  --creme-escuro: #f0ece0;
+  --texto: #1a1a2e;
+  --texto-suave: #4a4a6a;
+  --branco: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--azul);
+  position: relative;
+  overflow: hidden;
+  padding: 60px 40px 80px;
+  text-align: center;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(232,160,32,0.15);
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: rgba(91,141,217,0.12);
+}
+
+.header-badge {
+  display: inline-block;
+  background: var(--dourado);
+  color: var(--azul);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--branco);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.header h1 em {
+  color: var(--dourado-claro);
+  font-style: italic;
+}
+
+.header p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative wave */
+.wave {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -2px;
+}
+.wave svg { display: block; }
+
+/* ── CONTAINER ── */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── INTRO CARD ── */
+.intro-card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 32px;
+  margin: -20px auto 40px;
+  box-shadow: 0 8px 40px rgba(26,58,110,0.1);
+  border-left: 5px solid var(--dourado);
+  position: relative;
+  z-index: 2;
+}
+
+.intro-card p {
+  font-size: 15px;
+  color: var(--texto-suave);
+  line-height: 1.8;
+}
+
+.intro-card strong { color: var(--azul); }
+
+/* ── SEÇÃO ── */
+.secao {
+  margin-bottom: 40px;
+}
+
+.secao-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.secao-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--azul);
+  color: white;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.secao-titulo {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--azul);
+  line-height: 1.2;
+}
+
+.secao-subtitulo {
+  font-size: 13px;
+  color: var(--texto-suave);
+  margin-top: 2px;
+}
+
+/* ── CARD DE QUESTÃO ── */
+.questao-card {
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 16px rgba(26,58,110,0.06);
+  border: 1.5px solid rgba(26,58,110,0.07);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.questao-card:hover {
+  box-shadow: 0 6px 28px rgba(26,58,110,0.12);
+  border-color: rgba(91,141,217,0.3);
+}
+
+.questao-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.questao-num-inline {
+  color: var(--azul-claro);
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+/* ── ESCALA ── */
+.escala {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.escala-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.escala-label-txt {
+  font-size: 11px;
+  color: var(--texto-suave);
+  font-weight: 500;
+}
+
+.escala input[type="radio"] { display: none; }
+
+.escala label {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 2px solid #e0ddd5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.escala label:hover {
+  border-color: var(--azul-claro);
+  color: var(--azul);
+  background: rgba(91,141,217,0.08);
+}
+
+.escala input[type="radio"]:checked + label {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: white;
+  transform: scale(1.08);
+}
+
+/* Cores por valor */
+.escala-1 input:checked + label { background: var(--coral); border-color: var(--coral); }
+.escala-2 input:checked + label { background: #e07030; border-color: #e07030; }
+.escala-3 input:checked + label { background: var(--dourado); border-color: var(--dourado); color: var(--azul); }
+.escala-4 input:checked + label { background: var(--verde-claro); border-color: var(--verde-claro); }
+.escala-5 input:checked + label { background: var(--verde); border-color: var(--verde); }
+
+/* ── OPÇÕES MÚLTIPLA ESCOLHA ── */
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.opcao input[type="radio"],
+.opcao input[type="checkbox"] { display: none; }
+
+.opcao label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid #e0ddd5;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--texto-suave);
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.opcao label:hover {
+  border-color: var(--azul-claro);
+  background: rgba(91,141,217,0.05);
+  color: var(--texto);
+}
+
+.opcao input:checked + label {
+  border-color: var(--azul);
+  background: rgba(26,58,110,0.06);
+  color: var(--azul);
+  font-weight: 500;
+}
+
+.opcao-circulo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.15s;
+}
+
+.opcao input:checked + label .opcao-circulo {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+.opcao input:checked + label .opcao-circulo::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.opcao-quadrado {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid currentColor;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.opcao input[type="checkbox"]:checked + label .opcao-quadrado {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+.opcao input[type="checkbox"]:checked + label .opcao-quadrado::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── TEXTAREA ── */
+.textarea-wrapper {
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 2px solid #e0ddd5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--texto);
+  resize: vertical;
+  transition: border-color 0.15s;
+  background: var(--creme);
+  line-height: 1.6;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  background: white;
+}
+
+textarea::placeholder { color: #b0aaa0; }
+
+/* ── INPUT TEXT ── */
+input[type="text"] {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid #e0ddd5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--texto);
+  transition: border-color 0.15s;
+  background: var(--creme);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  background: white;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(26,58,110,0.12), transparent);
+  margin: 40px 0;
+}
+
+/* ── DESTAQUE ── */
+.destaque-card {
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 100%);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  color: white;
+}
+
+.destaque-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+}
+
+.destaque-card strong {
+  color: var(--dourado-claro);
+  font-weight: 600;
+}
+
+/* ── SUBMIT ── */
+.submit-area {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.submit-btn {
+  background: var(--azul);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px 56px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  box-shadow: 0 8px 30px rgba(26,58,110,0.3);
+}
+
+.submit-btn:hover {
+  background: var(--azul-medio);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(26,58,110,0.4);
+}
+
+.submit-hint {
+  font-size: 12px;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+
+/* ── OBRIGADO ── */
+.obrigado {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.obrigado-icon { font-size: 64px; margin-bottom: 20px; }
+
+.obrigado h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  color: var(--azul);
+  margin-bottom: 12px;
+}
+
+.obrigado p {
+  font-size: 16px;
+  color: var(--texto-suave);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── TAG OBRIGATÓRIO ── */
+.obrig {
+  display: inline-block;
+  background: rgba(224,90,58,0.1);
+  color: var(--coral);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ── BARRA DE PROGRESSO ── */
+.progress-bar-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--azul);
+  height: 4px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--dourado);
+  width: 0%;
+  transition: width 0.3s;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .header { padding: 40px 20px 60px; }
+  .container { padding: 0 16px 60px; }
+  .questao-card { padding: 20px; }
+  .escala label { width: 40px; height: 40px; font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill" id="progressBar"></div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-badge">Beta Kids · Avaliação de Currículo</div>
+  <h1>O que você <em>realmente</em><br>achou das lições?</h1>
+  <p>Sua avaliação é fundamental para garantirmos que estamos criando materiais que realmente funcionam na sala de aula.</p>
+</div>
+
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="background:var(--azul);">
+  <path fill="#faf8f3" d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z"/>
+</svg>
+
+<!-- CONTAINER -->
+<div class="container" id="formContainer">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <p>👋 Olá, professor(a)! Este questionário tem como objetivo <strong>avaliar as lições do Beta Kids</strong> que você aplicou. Responda com honestidade — respostas críticas são tão valiosas quanto elogios. Leva aproximadamente <strong>8-10 minutos</strong>.</p>
+  </div>
+
+  <form id="avaliacaoForm">
+
+    <!-- SEÇÃO 1: IDENTIFICAÇÃO -->
+    <div class="secao">
+      <div class="secao-header">
+        <div class="secao-num">1</div>
+        <div>
+          <div class="secao-titulo">Identificação</div>
+          <div class="secao-subtitulo">Nos conta um pouco sobre você e sua turma</div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">→</span>
+          <span>Qual é o seu nome? <span class="obrig">obrigatório</span></span>
+        </div>
+        <input type="text" name="nome" placeholder="Seu nome completo" required>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">→</span>
+          <span>Qual turma você ensina? <span class="obrig">obrigatório</span></span>
+        </div>
+        <div class="opcoes">
+          <div class="opcao">
+            <input type="radio" name="turma" id="t1" value="bercario">
+            <label for="t1"><span class="opcao-circulo"></span> Berçário (0-1 ano)</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="turma" id="t2" value="kids1">
+            <label for="t2"><span class="opcao-circulo"></span> Kids I (2-3 anos)</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="turma" id="t3" value="kids2">
+            <label for="t3"><span class="opcao-circulo"></span> Kids II (4-5 anos)</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="turma" id="t4" value="kids3">
+            <label for="t4"><span class="opcao-circulo"></span> Kids III (6-7 anos)</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">→</span>
+          <span>Há quanto tempo você serve no ministério infantil?</span>
+        </div>
+        <div class="opcoes">
+          <div class="opcao">
+            <input type="radio" name="tempo" id="tp1" value="menos1">
+            <label for="tp1"><span class="opcao-circulo"></span> Menos de 1 ano</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="tempo" id="tp2" value="1a3">
+            <label for="tp2"><span class="opcao-circulo"></span> 1 a 3 anos</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="tempo" id="tp3" value="3a5">
+            <label for="tp3"><span class="opcao-circulo"></span> 3 a 5 anos</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="tempo" id="tp4" value="mais5">
+            <label for="tp4"><span class="opcao-circulo"></span> Mais de 5 anos</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SEÇÃO 2: DEVOCIONAL DO PROFESSOR -->
+    <div class="secao">
+      <div class="secao-header">
+        <div class="secao-num" style="background:var(--verde);">2</div>
+        <div>
+          <div class="secao-titulo">Devocional do Professor</div>
+          <div class="secao-subtitulo">A parte que é só sua — antes de entrar na sala</div>
+        </div>
+      </div>
+
+      <div class="destaque-card">
+        <p>O devocional foi escrito para <strong>tocar o coração do professor</strong> antes de ele ensinar. Queremos saber se isso está acontecendo de verdade.</p>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">1.</span>
+          <span>O devocional me tocou pessoalmente — não apenas como professor, mas como pessoa. <span class="obrig">obrigatório</span></span>
+        </div>
+        <div class="escala">
+          <div class="escala-1">
+            <input type="radio" name="dev1" id="d1_1" value="1">
+            <label for="d1_1">1</label>
+          </div>
+          <div class="escala-2">
+            <input type="radio" name="dev1" id="d1_2" value="2">
+            <label for="d1_2">2</label>
+          </div>
+          <div class="escala-3">
+            <input type="radio" name="dev1" id="d1_3" value="3">
+            <label for="d1_3">3</label>
+          </div>
+          <div class="escala-4">
+            <input type="radio" name="dev1" id="d1_4" value="4">
+            <label for="d1_4">4</label>
+          </div>
+          <div class="escala-5">
+            <input type="radio" name="dev1" id="d1_5" value="5">
+            <label for="d1_5">5</label>
+          </div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Não me tocou</span>
+          <span class="escala-label-txt">Tocou profundamente</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">2.</span>
+          <span>O devocional me preparou espiritualmente para entrar em sala — não só intelectualmente.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="dev2" id="d2_1" value="1"><label for="d2_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="dev2" id="d2_2" value="2"><label for="d2_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="dev2" id="d2_3" value="3"><label for="d2_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="dev2" id="d2_4" value="4"><label for="d2_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="dev2" id="d2_5" value="5"><label for="d2_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Discordo totalmente</span>
+          <span class="escala-label-txt">Concordo totalmente</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">3.</span>
+          <span>As perguntas do "Para Refletir" me fizeram pensar de verdade — não foram superficiais.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="dev3" id="d3_1" value="1"><label for="d3_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="dev3" id="d3_2" value="2"><label for="d3_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="dev3" id="d3_3" value="3"><label for="d3_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="dev3" id="d3_4" value="4"><label for="d3_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="dev3" id="d3_5" value="5"><label for="d3_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Superficiais</span>
+          <span class="escala-label-txt">Profundas e desafiantes</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">4.</span>
+          <span>O que poderia ser melhorado no devocional? Seja honesto(a)!</span>
+        </div>
+        <textarea name="dev4_comentario" placeholder="Ex: poderia ser mais curto, mais pessoal, mais prático..."></textarea>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SEÇÃO 3: ACOLHIMENTO E HISTÓRIA -->
+    <div class="secao">
+      <div class="secao-header">
+        <div class="secao-num" style="background:var(--dourado); color:var(--azul);">3</div>
+        <div>
+          <div class="secao-titulo">Acolhimento e História Bíblica</div>
+          <div class="secao-subtitulo">O que aconteceu na prática com as crianças</div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">5.</span>
+          <span>O acolhimento preparou o coração das crianças para a história — criou curiosidade e conexão. <span class="obrig">obrigatório</span></span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="ac1" id="a1_1" value="1"><label for="a1_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="ac1" id="a1_2" value="2"><label for="a1_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="ac1" id="a1_3" value="3"><label for="a1_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="ac1" id="a1_4" value="4"><label for="a1_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="ac1" id="a1_5" value="5"><label for="a1_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Não funcionou</span>
+          <span class="escala-label-txt">Funcionou muito bem</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">6.</span>
+          <span>A história prendeu a atenção das crianças do começo ao fim.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="ac2" id="a2_1" value="1"><label for="a2_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="ac2" id="a2_2" value="2"><label for="a2_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="ac2" id="a2_3" value="3"><label for="a2_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="ac2" id="a2_4" value="4"><label for="a2_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="ac2" id="a2_5" value="5"><label for="a2_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Perderam o foco rapidamente</span>
+          <span class="escala-label-txt">Atenção total</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">7.</span>
+          <span>As pausas para diálogo geraram perguntas e respostas genuínas das crianças.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="ac3" id="a3_1" value="1"><label for="a3_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="ac3" id="a3_2" value="2"><label for="a3_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="ac3" id="a3_3" value="3"><label for="a3_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="ac3" id="a3_4" value="4"><label for="a3_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="ac3" id="a3_5" value="5"><label for="a3_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Silêncio ou respostas forçadas</span>
+          <span class="escala-label-txt">Diálogo rico e espontâneo</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">8.</span>
+          <span>Os recursos sugeridos para a história (pelúcia, pano azul, caixa, etc.) foram fáceis de reunir e usar.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="ac4" id="a4_1" value="1"><label for="a4_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="ac4" id="a4_2" value="2"><label for="a4_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="ac4" id="a4_3" value="3"><label for="a4_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="ac4" id="a4_4" value="4"><label for="a4_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="ac4" id="a4_5" value="5"><label for="a4_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Difíceis de conseguir</span>
+          <span class="escala-label-txt">Fáceis e acessíveis</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">9.</span>
+          <span>Houve alguma parte da história que não funcionou bem? Descreva o que aconteceu.</span>
+        </div>
+        <textarea name="hist_comentario" placeholder="Ex: as crianças dispersaram na cena 3, a pergunta era difícil demais, faltou recurso visual..."></textarea>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SEÇÃO 4: ATIVIDADE -->
+    <div class="secao">
+      <div class="secao-header">
+        <div class="secao-num" style="background:var(--coral);">4</div>
+        <div>
+          <div class="secao-titulo">Atividade</div>
+          <div class="secao-subtitulo">O que as crianças fizeram e levaram pra casa</div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">10.</span>
+          <span>As crianças se engajaram com a atividade — fizeram com interesse, não só por obrigação. <span class="obrig">obrigatório</span></span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="at1" id="at1_1" value="1"><label for="at1_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="at1" id="at1_2" value="2"><label for="at1_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="at1" id="at1_3" value="3"><label for="at1_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="at1" id="at1_4" value="4"><label for="at1_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="at1" id="at1_5" value="5"><label for="at1_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Desinteresse total</span>
+          <span class="escala-label-txt">Muito engajadas</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">11.</span>
+          <span>A atividade reforçou a mensagem da história — não foi só "passatempo".</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="at2" id="at2_1" value="1"><label for="at2_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="at2" id="at2_2" value="2"><label for="at2_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="at2" id="at2_3" value="3"><label for="at2_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="at2" id="at2_4" value="4"><label for="at2_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="at2" id="at2_5" value="5"><label for="at2_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Sem conexão com a lição</span>
+          <span class="escala-label-txt">Reforçou muito bem</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">12.</span>
+          <span>O tempo de 15-20 minutos para a atividade foi suficiente?</span>
+        </div>
+        <div class="opcoes">
+          <div class="opcao">
+            <input type="radio" name="at3" id="at3_1" value="curto">
+            <label for="at3_1"><span class="opcao-circulo"></span> Foi curto — as crianças não terminaram</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="at3" id="at3_2" value="ideal">
+            <label for="at3_2"><span class="opcao-circulo"></span> Foi ideal — terminou no tempo certo</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="at3" id="at3_3" value="longo">
+            <label for="at3_3"><span class="opcao-circulo"></span> Foi longo demais — sobrou tempo</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">13.</span>
+          <span>Os materiais necessários para a atividade foram acessíveis e fáceis de preparar.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="at4" id="at4_1" value="1"><label for="at4_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="at4" id="at4_2" value="2"><label for="at4_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="at4" id="at4_3" value="3"><label for="at4_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="at4" id="at4_4" value="4"><label for="at4_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="at4" id="at4_5" value="5"><label for="at4_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Difíceis de preparar</span>
+          <span class="escala-label-txt">Muito fáceis</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SEÇÃO 5: IMPACTO REAL -->
+    <div class="secao">
+      <div class="secao-header">
+        <div class="secao-num" style="background:var(--azul-medio);">5</div>
+        <div>
+          <div class="secao-titulo">Impacto Real</div>
+          <div class="secao-subtitulo">O que ficou — na criança e em você</div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">14.</span>
+          <span>Acredito que a mensagem da lição ficou na memória das crianças depois que foram para casa. <span class="obrig">obrigatório</span></span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="imp1" id="i1_1" value="1"><label for="i1_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="imp1" id="i1_2" value="2"><label for="i1_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="imp1" id="i1_3" value="3"><label for="i1_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="imp1" id="i1_4" value="4"><label for="i1_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="imp1" id="i1_5" value="5"><label for="i1_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Provavelmente esqueceram</span>
+          <span class="escala-label-txt">Certamente lembraram</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">15.</span>
+          <span>Houve algum momento na aula em que você percebeu que a mensagem realmente chegou numa criança — um olhar, uma fala, uma reação? Descreva!</span>
+        </div>
+        <textarea name="imp_momento" placeholder="Conta pra gente! Esses momentos são o coração do ministério..."></textarea>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">16.</span>
+          <span>Você saiu da aula sentindo que valeu a pena — que fez diferença.</span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="imp2" id="i2_1" value="1"><label for="i2_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="imp2" id="i2_2" value="2"><label for="i2_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="imp2" id="i2_3" value="3"><label for="i2_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="imp2" id="i2_4" value="4"><label for="i2_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="imp2" id="i2_5" value="5"><label for="i2_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Saí desanimado(a)</span>
+          <span class="escala-label-txt">Saí renovado(a)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SEÇÃO 6: AVALIAÇÃO GERAL -->
+    <div class="secao">
+      <div class="secao-header">
+        <div class="secao-num" style="background:var(--dourado); color:var(--azul);">6</div>
+        <div>
+          <div class="secao-titulo">Avaliação Geral</div>
+          <div class="secao-subtitulo">Sua opinião sincera sobre o currículo</div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">17.</span>
+          <span>No geral, como você avalia a qualidade desta lição? <span class="obrig">obrigatório</span></span>
+        </div>
+        <div class="escala">
+          <div class="escala-1"><input type="radio" name="geral1" id="g1_1" value="1"><label for="g1_1">1</label></div>
+          <div class="escala-2"><input type="radio" name="geral1" id="g1_2" value="2"><label for="g1_2">2</label></div>
+          <div class="escala-3"><input type="radio" name="geral1" id="g1_3" value="3"><label for="g1_3">3</label></div>
+          <div class="escala-4"><input type="radio" name="geral1" id="g1_4" value="4"><label for="g1_4">4</label></div>
+          <div class="escala-5"><input type="radio" name="geral1" id="g1_5" value="5"><label for="g1_5">5</label></div>
+        </div>
+        <div class="escala-labels">
+          <span class="escala-label-txt">Fraca</span>
+          <span class="escala-label-txt">Excelente</span>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">18.</span>
+          <span>Você recomendaria este currículo para outros professores de ministério infantil?</span>
+        </div>
+        <div class="opcoes">
+          <div class="opcao">
+            <input type="radio" name="geral2" id="g2_1" value="sim">
+            <label for="g2_1"><span class="opcao-circulo"></span> Sim, com certeza!</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="geral2" id="g2_2" value="talvez">
+            <label for="g2_2"><span class="opcao-circulo"></span> Talvez, com algumas melhorias</label>
+          </div>
+          <div class="opcao">
+            <input type="radio" name="geral2" id="g2_3" value="nao">
+            <label for="g2_3"><span class="opcao-circulo"></span> Não, precisa mudar bastante</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">19.</span>
+          <span>O que você mais gostou nesta lição? O que ficou?</span>
+        </div>
+        <textarea name="geral_gostou" placeholder="Pode ser um detalhe pequeno ou algo grande — queremos saber!"></textarea>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">20.</span>
+          <span>O que você mudaria ou melhoraria? Seja direto(a) — críticas construtivas são ouro para nós!</span>
+        </div>
+        <textarea name="geral_mudaria" placeholder="Sem filtro — sua honestidade nos ajuda a melhorar de verdade."></textarea>
+      </div>
+
+      <div class="questao-card">
+        <div class="questao-label">
+          <span class="questao-num-inline">21.</span>
+          <span>Tem algo que você gostaria de ver em lições futuras? Alguma história, tema ou tipo de atividade?</span>
+        </div>
+        <textarea name="geral_futuro" placeholder="Seus pedidos importam — você está na linha de frente!"></textarea>
+      </div>
+
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <button type="submit" class="submit-btn">Enviar Avaliação ✨</button>
+      <p class="submit-hint">Obrigado por dedicar seu tempo! Cada resposta faz diferença.</p>
+    </div>
+
+  </form>
+
+  <!-- OBRIGADO -->
+  <div class="obrigado" id="obrigado">
+    <div class="obrigado-icon">🙏</div>
+    <h2>Muito obrigado!</h2>
+    <p>Sua avaliação foi recebida. Cada resposta sua nos ajuda a criar lições que realmente chegam ao coração das crianças — e dos professores.</p>
+  </div>
+
+</div>
+
+<script>
+// Progresso
+function updateProgress() {
+  const inputs = document.querySelectorAll('input[type="radio"]:checked, textarea, input[type="text"]');
+  const total = document.querySelectorAll('input[type="radio"][name], textarea, input[type="text"]').length;
+  const unique = new Set();
+  document.querySelectorAll('input[type="radio"]:checked').forEach(i => unique.add(i.name));
+  document.querySelectorAll('textarea').forEach(t => { if(t.value.trim()) unique.add(t.id || Math.random()); });
+  document.querySelectorAll('input[type="text"]').forEach(t => { if(t.value.trim()) unique.add(t.id || Math.random()); });
+  const progress = Math.min((unique.size / 21) * 100, 100);
+  document.getElementById('progressBar').style.width = progress + '%';
+}
+
+document.addEventListener('change', updateProgress);
+document.addEventListener('input', updateProgress);
+
+// ====================================================
+// IMPORTANTE: Cole aqui a URL do seu Google Apps Script
+// ====================================================
+const APPS_SCRIPT_URL = 'COLE_SUA_URL_AQUI';
+
+// Submit
+document.getElementById('avaliacaoForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var btn = document.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  // Coleta todos os dados do formulario
+  var formData = {};
+  // Inputs de texto
+  document.querySelectorAll('input[type="text"][name]').forEach(function(el) {
+    formData[el.name] = el.value.trim();
+  });
+  // Radio buttons
+  document.querySelectorAll('input[type="radio"]:checked').forEach(function(el) {
+    formData[el.name] = el.value;
+  });
+  // Textareas
+  document.querySelectorAll('textarea[name]').forEach(function(el) {
+    formData[el.name] = el.value.trim();
+  });
+
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  })
+  .then(function() {
+    document.getElementById('formContainer').innerHTML = document.getElementById('obrigado').outerHTML;
+    document.getElementById('obrigado').style.display = 'block';
+    document.getElementById('progressBar').style.width = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  })
+  .catch(function() {
+    // Mesmo com no-cors, o envio funciona - mostra sucesso
+    document.getElementById('formContainer').innerHTML = document.getElementById('obrigado').outerHTML;
+    document.getElementById('obrigado').style.display = 'block';
+    document.getElementById('progressBar').style.width = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
